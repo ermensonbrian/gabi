@@ -8,22 +8,36 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to top, #f7d9f9, #ba68c8);
+      background: url('https://i.imgur.com/bwVmW1d.png') repeat;
+      background-color: #ffdaf0;
       text-align: center;
       overflow-x: hidden;
     }
+
     #senha-container, .cartinha {
       padding: 40px;
+      background: rgba(255, 255, 255, 0.85);
+      margin: 50px auto;
+      width: 90%;
+      max-width: 600px;
+      border-radius: 16px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
     }
+
     input, button {
       padding: 10px;
       font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      margin: 5px;
     }
+
     .cartinha p {
       font-size: 22px;
-      color: #fff;
+      color: #444;
       white-space: pre-wrap;
     }
+
     .heart {
       position: absolute;
       width: 20px;
@@ -32,6 +46,7 @@
       transform: rotate(45deg);
       animation: flutuar 8s infinite;
     }
+
     .heart::before,
     .heart::after {
       content: "";
@@ -41,14 +56,17 @@
       background: red;
       border-radius: 50%;
     }
+
     .heart::before {
       top: -10px;
       left: 0;
     }
+
     .heart::after {
       left: -10px;
       top: 0;
     }
+
     @keyframes flutuar {
       0% {
         transform: translateY(0) rotate(45deg);
@@ -62,30 +80,29 @@
   </style>
 </head>
 <body>
+  <!-- TELA DE SENHA -->
   <div id="senha-container">
     <h2>Você foi feita sob medida, como um verso de Djavan...</h2>
     <input type="password" id="senha" placeholder="Digite a senha">
     <button onclick="verificarSenha()">Entrar</button>
-    <p id="mensagem-erro" style="color: white;"></p>
+    <p id="mensagem-erro" style="color: crimson;"></p>
   </div>
 
+  <!-- CONTEÚDO SECRETO -->
   <div id="conteudo" style="display:none;">
-    <!-- Corações flutuantes -->
+    <!-- Efeito de corações -->
     <div class="heart"></div><div class="heart"></div><div class="heart"></div>
 
-    <!-- Cartinha com digitação -->
+    <!-- Cartinha -->
     <div class="cartinha">
       <p id="mensagem"></p>
     </div>
 
-    <!-- Vídeo local -->
+    <!-- Vídeo -->
     <video width="90%" controls autoplay loop>
       <source src="video.mp4" type="video/mp4">
       Seu navegador não suporta vídeo.
     </video>
-
-    <!-- Quebra-cabeça incorporado -->
-    <iframe src="https://www.jigsawplanet.com/?rc=play&pid=3f64d09f7a9f" width="800" height="600" frameborder="0" allowfullscreen style="margin-top: 30px;"></iframe>
   </div>
 
   <script>
@@ -102,7 +119,7 @@
       }
     }
 
-    const texto = `Amor, isso aqui é apenas uma parte do que posso fazer por você, usando minhas habilidades ksksk. Eu sou completamente apaixonado por cada detalhe seu. 💗\\n— Com amor, Brian`;
+    const texto = `Amor, isso aqui é apenas uma parte do que posso fazer por você, usando minhas habilidades ksksk. Eu sou completamente apaixonado por cada detalhe seu. 💗`;
     let i = 0;
 
     function escreverMensagem() {
@@ -110,7 +127,7 @@
       if (i < texto.length) {
         el.innerHTML += texto.charAt(i);
         i++;
-        setTimeout(escreverMensagem, 50);
+        setTimeout(escreverMensagem, 45);
       }
     }
   </script>

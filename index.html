@@ -8,7 +8,8 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.imgur.com/bwVmW1d.png') repeat;
+      background: url('https://i.ibb.co/yk3VtGV/pichacao-coracao.jpg') repeat;
+      background-size: 250px;
       background-color: #ffdaf0;
       text-align: center;
       overflow-x: hidden;
@@ -16,7 +17,7 @@
 
     #senha-container, .cartinha {
       padding: 40px;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       margin: 50px auto;
       width: 90%;
       max-width: 600px;
@@ -82,7 +83,7 @@
 <body>
   <!-- TELA DE SENHA -->
   <div id="senha-container">
-    <h2>Você foi feita sob medida, como um verso de Djavan...</h2>
+    <h2>Você foi feita sob medida, como um verso de Djavan, te amo mo...</h2>
     <input type="password" id="senha" placeholder="Digite a senha">
     <button onclick="verificarSenha()">Entrar</button>
     <p id="mensagem-erro" style="color: crimson;"></p>
@@ -90,15 +91,12 @@
 
   <!-- CONTEÚDO SECRETO -->
   <div id="conteudo" style="display:none;">
-    <!-- Efeito de corações -->
     <div class="heart"></div><div class="heart"></div><div class="heart"></div>
 
-    <!-- Cartinha -->
     <div class="cartinha">
       <p id="mensagem"></p>
     </div>
 
-    <!-- Vídeo -->
     <video width="90%" controls autoplay loop>
       <source src="video.mp4" type="video/mp4">
       Seu navegador não suporta vídeo.

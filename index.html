@@ -8,11 +8,9 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.imgur.com/vbR38iT.png') repeat;
-      background-size: 200px;
-      background-color: #ffdce5;
+      background-color: #ffd5ec;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
     }
 
     #senha-container, .cartinha {
@@ -23,6 +21,8 @@
       max-width: 600px;
       border-radius: 16px;
       box-shadow: 0 0 12px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 2;
     }
 
     input, button {
@@ -39,49 +39,27 @@
       white-space: pre-wrap;
     }
 
-    .heart {
+    .emoji-heart {
       position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: flutuar 8s infinite;
-    }
-
-    .heart::before,
-    .heart::after {
-      content: "";
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
+      font-size: 24px;
+      animation: flutuar 8s linear infinite;
+      z-index: 1;
     }
 
     @keyframes flutuar {
       0% {
-        transform: translateY(0) rotate(45deg);
+        transform: translateY(100vh);
         opacity: 1;
       }
       100% {
-        transform: translateY(-600px) rotate(45deg);
+        transform: translateY(-20vh);
         opacity: 0;
       }
     }
   </style>
 </head>
 <body>
-  <!-- TELA DE SENHA -->
+  <!-- Tela de Senha -->
   <div id="senha-container">
     <h2>Você foi feita sob medida, como um verso de Djavan... 💖✨💌</h2>
     <input type="password" id="senha" placeholder="Digite a senha">
@@ -89,12 +67,12 @@
     <p id="mensagem-erro" style="color: crimson;"></p>
   </div>
 
-  <!-- CONTEÚDO SECRETO -->
+  <!-- Conteúdo secreto -->
   <div id="conteudo" style="display:none;">
-    <!-- Corações animados -->
-    <div class="heart"></div><div class="heart"></div><div class="heart"></div>
+    <!-- Emojis flutuando -->
+    <div id="emojis"></div>
 
-    <!-- Cartinha com digitação -->
+    <!-- Cartinha -->
     <div class="cartinha">
       <p id="mensagem"></p>
     </div>
@@ -115,6 +93,7 @@
         document.getElementById("senha-container").style.display = "none";
         document.getElementById("conteudo").style.display = "block";
         escreverMensagem();
+        gerarCorações();
       } else {
         document.getElementById("mensagem-erro").innerText = "Senha incorreta! 😥";
       }
@@ -129,6 +108,20 @@
         el.innerHTML += texto.charAt(i);
         i++;
         setTimeout(escreverMensagem, 45);
+      }
+    }
+
+    function gerarCorações() {
+      const container = document.getElementById("emojis");
+      const emojis = ["💘", "💖", "❤️", "💕", "💞", "💓"];
+      for (let i = 0; i < 50; i++) {
+        const heart = document.createElement("div");
+        heart.className = "emoji-heart";
+        heart.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.animationDuration = (6 + Math.random() * 4) + "s";
+        container.appendChild(heart);
       }
     }
   </script>

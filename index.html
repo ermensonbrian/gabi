@@ -1,33 +1,118 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Para Gabi</title>
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to top, #f7d9f9, #ba68c8);
+      text-align: center;
+      overflow-x: hidden;
+    }
+    #senha-container, .cartinha {
+      padding: 40px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 18px;
+    }
+    .cartinha p {
+      font-size: 22px;
+      color: #fff;
+      white-space: pre-wrap;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: flutuar 8s infinite;
+    }
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+    @keyframes flutuar {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-600px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <div id="senha-container">
     <h2>Você foi feita sob medida, como um verso de Djavan...</h2>
     <input type="password" id="senha" placeholder="Digite a senha">
     <button onclick="verificarSenha()">Entrar</button>
-    <p id="mensagem-erro"></p>
+    <p id="mensagem-erro" style="color: white;"></p>
   </div>
 
   <div id="conteudo" style="display:none;">
-    <audio autoplay loop>
-      <source src="https://www.dropbox.com/scl/fi/xj3q8xksmx2fg5mqjqj88/Djavan-Amor-Puro.mp3?rlkey=hb6d3etb3lwi72hrge1sy6sps&dl=1" type="audio/mpeg">
-    </audio>
+    <!-- Corações flutuantes -->
+    <div class="heart"></div><div class="heart"></div><div class="heart"></div>
+
+    <!-- Cartinha com digitação -->
     <div class="cartinha">
       <p id="mensagem"></p>
     </div>
-    <div class="quebra-cabeca">
-      <h3>🧩 Quebra-cabeça</h3>
-      <p class="mensagem-final">"A mulher mais incrível que já conheci na minha vida, eu te amo e nunca vou desistir de você."</p>
-    </div>
+
+    <!-- Vídeo local -->
+    <video width="90%" controls autoplay loop>
+      <source src="video.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+
+    <!-- Quebra-cabeça incorporado -->
+    <iframe src="https://www.jigsawplanet.com/?rc=play&pid=3f64d09f7a9f" width="800" height="600" frameborder="0" allowfullscreen style="margin-top: 30px;"></iframe>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    const senhaCorreta = "mimadinha";
+
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+      if (senha === senhaCorreta) {
+        document.getElementById("senha-container").style.display = "none";
+        document.getElementById("conteudo").style.display = "block";
+        escreverMensagem();
+      } else {
+        document.getElementById("mensagem-erro").innerText = "Senha incorreta!";
+      }
+    }
+
+    const texto = `Amor, isso aqui é apenas uma parte do que posso fazer por você, usando minhas habilidades ksksk. Eu sou completamente apaixonado por cada detalhe seu. 💗\\n— Com amor, Brian`;
+    let i = 0;
+
+    function escreverMensagem() {
+      const el = document.getElementById("mensagem");
+      if (i < texto.length) {
+        el.innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escreverMensagem, 50);
+      }
+    }
+  </script>
 </body>
 </html>

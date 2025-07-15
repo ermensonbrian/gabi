@@ -8,16 +8,16 @@
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: url('https://i.ibb.co/yk3VtGV/pichacao-coracao.jpg') repeat;
-      background-size: 250px;
-      background-color: #ffdaf0;
+      background: url('https://i.imgur.com/vbR38iT.png') repeat;
+      background-size: 200px;
+      background-color: #ffdce5;
       text-align: center;
       overflow-x: hidden;
     }
 
     #senha-container, .cartinha {
       padding: 40px;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       margin: 50px auto;
       width: 90%;
       max-width: 600px;
@@ -83,7 +83,7 @@
 <body>
   <!-- TELA DE SENHA -->
   <div id="senha-container">
-    <h2>Você foi feita sob medida, como um verso de Djavan, te amo mo...</h2>
+    <h2>Você foi feita sob medida, como um verso de Djavan... 💖✨💌</h2>
     <input type="password" id="senha" placeholder="Digite a senha">
     <button onclick="verificarSenha()">Entrar</button>
     <p id="mensagem-erro" style="color: crimson;"></p>
@@ -91,12 +91,15 @@
 
   <!-- CONTEÚDO SECRETO -->
   <div id="conteudo" style="display:none;">
+    <!-- Corações animados -->
     <div class="heart"></div><div class="heart"></div><div class="heart"></div>
 
+    <!-- Cartinha com digitação -->
     <div class="cartinha">
       <p id="mensagem"></p>
     </div>
 
+    <!-- Vídeo -->
     <video width="90%" controls autoplay loop>
       <source src="video.mp4" type="video/mp4">
       Seu navegador não suporta vídeo.
@@ -113,11 +116,11 @@
         document.getElementById("conteudo").style.display = "block";
         escreverMensagem();
       } else {
-        document.getElementById("mensagem-erro").innerText = "Senha incorreta!";
+        document.getElementById("mensagem-erro").innerText = "Senha incorreta! 😥";
       }
     }
 
-    const texto = `Amor, isso aqui é apenas uma parte do que posso fazer por você, usando minhas habilidades ksksk. Eu sou completamente apaixonado por cada detalhe seu. 💗`;
+    const texto = `Amor, isso aqui é apenas uma parte do que posso fazer por você, usando minhas habilidades ksksk 😅💻💖 Eu sou completamente apaixonado por cada detalhe seu. 😍✨ Te amo demais! 💘💌`;
     let i = 0;
 
     function escreverMensagem() {
